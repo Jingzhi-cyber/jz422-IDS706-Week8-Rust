@@ -8,7 +8,7 @@ To set up the project, simply run make all or run make install and make test.
 
 ## Features
 ### Data Analysis
-Included is a Python script data_analysis.py that performs basic data analysis tasks:
+Included is a Python script data_analysis.py that performs basic data analysis tasks using Polars:
 
 - Reads a dataset from a CSV file
 - Generates summary statistics like mean, median, and standard deviation
