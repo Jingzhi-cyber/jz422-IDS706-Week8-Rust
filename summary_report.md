@@ -1,11 +1,8 @@
 # Summary Report
 ## Descriptive Statistics
 ### Mean:
-Average    1.2
-dtype: float64
+1.2
 ### Median:
-Average    0.6
-dtype: float64
+0.6
 ### Standard Deviation:
-Average    1.254705
-dtype: float64
+1.2547054292883706
