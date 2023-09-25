@@ -26,6 +26,7 @@ Included is a Python script data_analysis.py that performs basic data analysis t
 
 ![Alt text](Average_histogram.png)
 
+![Alt text](image_report.png)
 
 ## Test CSV File: hurricanes.csv
 
