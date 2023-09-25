@@ -1,10 +1,11 @@
-# IDS706-Python-Template
-[![CI](https://github.com/Jingzhi-cyber/IDS706-Python-Template/actions/workflows/cicd.yml/badge.svg)](https://github.com/Jingzhi-cyber/IDS706-Python-Template/actions/workflows/cicd.yml)
+# Polars Descriptive Statistics Script
+[![CI](https://github.com/Jingzhi-cyber/jz422-IDS706-Week3-Polars/actions/workflows/cicd.yml/badge.svg)](https://github.com/Jingzhi-cyber/jz422-IDS706-Week3-Polars/actions/workflows/cicd.yml)
 
 This repository sets up an environment on CodeSpaces and uses GitHub Actions to run a Makefile for the following commands: make install, make test, make format, and make lint.
 
 ## Getting Started
 To set up the project, simply run make all or run make install and make test.
+![Alt text](image_make.png)
 
 ## Features
 ### Data Analysis
@@ -21,10 +22,15 @@ Included is a Python script data_analysis.py that performs basic data analysis t
     **python3 data_analysis.py**
 
 3. Check the output for summary statistics and look for the generated histogram image in the current directory.
+![Alt text](image_terminal.png)
+
+![Alt text](Average_histogram.png)
+
 
 ## Test CSV File: hurricanes.csv
 
 I get it from <https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html>
+![Alt text](image_csv.png)
 
 ## Project Structure
 - **.devcontainer** includes a Dockerfile and devcontainer.json. The **Dockerfile** within this folder specifies how the container should be built, and other settings in this directory may control development environment configurations.
