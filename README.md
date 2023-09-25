@@ -41,4 +41,4 @@ I get it from <https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html>
 - **requirements.txt** is to specify the dependencies (libraries and packages) required to run the project.
 - **test_main.py** is a test file for main.py that can successfully run in IDEs.
 - **main.py** is a Python file that contains the main function.
-- **data_analysis.py** is a Python script for basic data analysis tasks.
+- **data_analysis.py** is a Python script for basic data analysis tasks using Polars.
