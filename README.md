@@ -22,6 +22,7 @@ Included is a Python script data_analysis.py that performs basic data analysis t
     **python3 data_analysis.py**
 
 3. Check the output for summary statistics
+
 ![Alt text](image_python.png)
 
 ### Data Analysis in Rust
