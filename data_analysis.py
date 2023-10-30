@@ -1,51 +1,55 @@
-import polars as pl
-import matplotlib.pyplot as plt
-
-# Reading a dataset from a CSV file
-def read_dataset(input_file_path):
-    data_frame = pl.read_csv(input_file_path)
-    return data_frame
+import pandas as pd
+import time
+import psutil
 
 
-# Generate summary statistics
-def summary_statistics(input_df, column_name):
-    mean_values = input_df[column_name].mean()
-    median_values = input_df[column_name].median()
-    std_dev_values = input_df[column_name].std()
-
-    return mean_values, median_values, std_dev_values
+def load_data(datapath):
+    return pd.read_csv(datapath, sep=";")
 
 
-# Create a data visualization
-def data_visualization(input_df, column_name):
-    plt.hist(input_df[column_name].to_numpy())
-    plt.title(f"Histogram of {column_name}")
-    plt.xlabel(column_name)
-    plt.ylabel("Frequency")
-    plt.savefig(f"{column_name}_histogram.png")
-    plt.show()
+def get_data_descriptive_stats(dataframe, column):
+    statistics = {
+        "Mean": dataframe[column].mean(),
+        "Median": dataframe[column].median(),
+        "StdDev": dataframe[column].std(),
+        "Min": dataframe[column].min(),
+        "Max": dataframe[column].max(),
+    }
+    return pd.Series(statistics)
+
+
+def test_loaddata():
+    # load iris dataset
+    path = "cars.csv"
+    iris_df = load_data(path)
+    assert isinstance(iris_df, pd.DataFrame)
+    assert not iris_df.empty
+
+
+def test_descriptive_stats():
+    path = "cars.csv"
+    vehicles_df = load_data(path)
+    statistics = get_data_descriptive_stats(vehicles_df, "Acceleration")
+    # print(statistics['Mean'])
+    assert statistics["Mean"] == 15.519704433497537
+    print(statistics)
+
+
+def test():
+    start = time.time()
+    test_loaddata()
+    test_descriptive_stats()
+
+    end = time.time()
+    duration = end - start
+    cpu_usage = psutil.cpu_percent()
+    mem_usage = psutil.virtual_memory()
+
+    print(f"Elapsed time: {duration:.4f} seconds")
+    print(f"CPU Usage: {cpu_usage}%")
+    print(f"Memory Usage: {mem_usage.percent}%")
 
 
 if __name__ == "__main__":
-    # Replace this path with the path to your own CSV file
-    file_path = "hurricanes.csv"
-
-    df = read_dataset(file_path)
-
-    # Calculate summary statistics for the "Average" column
-    mean, median, std_dev = summary_statistics(df, "Average")
-
-    print("Mean:", mean)
-    print("Median:", median)
-    print("Standard Deviation:", std_dev)
-
-    # Visualize the "Average" column
-    data_visualization(df, "Average")
-
-    # Generate summary report
-    with open("summary_report.md", "w", encoding="utf-8") as f:
-        f.write("# Summary Report\n")
-        f.write("## Descriptive Statistics\n")
-        f.write(f"### Mean:\n{mean}\n")
-        f.write(f"### Median:\n{median}\n")
-        f.write(f"### Standard Deviation:\n{std_dev}\n")
+    print("Python performance:")
+    test()

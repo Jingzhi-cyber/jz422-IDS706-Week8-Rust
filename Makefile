@@ -1,3 +1,4 @@
+# Python tasks
 install:
 	pip install --upgrade pip &&\
 		pip install --prefer-binary -r requirements.txt
@@ -11,4 +12,8 @@ format:
 lint:
 	pylint --disable=R,C --ignore-patterns=test_.*?py *.py
 
-all: install lint format test
+# Rust tasks
+build-rust:
+	cargo build --release
+
+all: install lint format test build-rust
